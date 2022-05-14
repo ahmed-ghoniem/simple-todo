@@ -36,10 +36,5 @@
         "*.csproj.user": true,
         "*.suo": true
     },
-    "cSpell.words": [
-        "Consts",
-        "joynt",
-        "primeng",
-        "Tabset"
-    ]
+    "cSpell.words": []
 }
