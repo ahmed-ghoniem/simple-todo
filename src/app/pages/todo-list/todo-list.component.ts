@@ -123,7 +123,7 @@ export class TodoListComponent implements OnInit, OnDestroy {
 	}
 
 	groupBy(list, property = 'groupName') {
-		const results = list.reduce((groups, item) => {
+		const results = (list || []).reduce((groups, item) => {
 			const val = item[property];
 			groups[val] = groups[val] || {};
 			groups[val].name = item[property];

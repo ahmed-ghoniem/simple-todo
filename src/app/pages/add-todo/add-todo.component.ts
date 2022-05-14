@@ -19,6 +19,10 @@ export class AddTodoComponent implements OnInit {
 		this.GroupData = TaskDataService.getGroupData();
 	}
 
+	ngOnInit(): void {
+		this.initForm();
+	}
+
 	private initForm() {
 		this.todoForm = new FormGroup({
 			title: new FormControl(null, [Validators.required]),
@@ -50,7 +54,6 @@ export class AddTodoComponent implements OnInit {
 			this.validationService.validateAllFormFields(todoForm);
 			return;
 		}
-
 		let newTask: TaskModel = {
 			id: this.TaskDataService.getTaskData().length + 2,
 			title: todoForm.value.title,
@@ -61,16 +64,11 @@ export class AddTodoComponent implements OnInit {
 			description: todoForm.value.description,
 			isDeleted: false
 		};
-		this.TaskDataService.AllTasks.push(newTask);
-		console.log(this.TaskDataService.AllTasks);
+		this.TaskDataService.addTask(newTask);
 		this.todoForm.reset();
 	}
 
 	resetForm() {
 		this.todoForm.reset();
-	}
-
-	ngOnInit(): void {
-		this.initForm();
 	}
 }
