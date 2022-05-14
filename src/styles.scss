@@ -1,0 +1,221 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+// main colors
+$color-red: #ff9c9c;
+$color-green: #86e0a4;
+$color-dark-blue: #183c5b;
+$color-medium-blue: #4d708e;
+$color-light-blue: #678cab;
+$color-ligth-sky: #f1fdff;
+$color-font: #363636;
+$color-gray: #f2f2f2;
+
+//responsive
+$information-laptopLarge: "only screen and (max-width : 1440px)";
+$information-laptop: "only screen and (max-width : 1024px)";
+$information-tablet: "only screen and (max-width : 768px)";
+$information-MobileLarge: "only screen and (max-width : 425px)";
+$information-MobileMedium: "only screen and (max-width : 375px)";
+$information-MobileSmall: "only screen and (max-width : 320px)";
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Acme", sans-serif;
+}
+
+// font face
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Titillium WebLight"), local("TitilliumWeb-Light"),
+    url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
+      format("woff");
+}
+
+//mixin func
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin btn($color) {
+  background-color: $color;
+  border: solid 1px $color;
+  color: white;
+  transition: 0.5s;
+  padding: 5px;
+  margin: 10px;
+  min-width: 130px;
+  &:hover {
+    filter: saturate(5);
+  }
+  i::before {
+    color: white;
+  }
+  @media #{$information-tablet} {
+    padding: 10px !important;
+    font-size: 12px;
+  }
+}
+
+body {
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-dark-blue;
+  }
+}
+
+main {
+  min-height: 85vh;
+}
+
+%box-element {
+  box-shadow: 7px 7px 20px 0px rgb(0, 0, 0, 0.12);
+  border-radius: 6px;
+  border: none;
+}
+
+%dropdown-menu {
+  @extend %box-element;
+  text-align: center;
+  border-radius: 18px;
+  left: 0 !important;
+  margin-top: 20px;
+  position: absolute;
+
+  .dropdown-item {
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      background-color: #acd6ff;
+      border-radius: 5px;
+    }
+  }
+
+  .dropdown-divider {
+    margin: 0.3rem 0;
+  }
+
+  &::before {
+    content: " ";
+    position: absolute;
+    top: -13px;
+    left: 41%;
+    z-index: -1;
+    border-right: 1px solid #f3f3f3c7;
+    border-bottom: 1px solid #f3f3f3c7;
+    width: 25px;
+    height: 25px;
+    transform: rotate(225deg);
+    background-color: #fff;
+  }
+}
+
+%input {
+  padding: 10px;
+  background-color: white;
+  border: none;
+  border-radius: 7px;
+  height: 36px;
+  font-size: 12px;
+  transition: 0.2s;
+
+  &::placeholder {
+    color: #999999;
+    font-weight: normal;
+  }
+  &:focus-within,
+  &:focus {
+    border: none;
+    box-shadow: none;
+    border-bottom: 2px solid $color-medium-blue;
+  }
+}
+
+.btn-blue {
+  @include btn($color-dark-blue);
+}
+.btn-red {
+  @include btn($color-red);
+}
+.btn-green {
+  @include btn($color-green);
+}
+.btn-gray {
+  @include btn(#999999);
+}
+
+input,
+textarea {
+  @extend %input;
+}
+//ng select style
+
+.ng-select {
+  @extend %input;
+  .ng-select-container {
+    height: 36px;
+    border: none;
+    border-radius: 16px;
+    align-items: center;
+    padding: 14px;
+    border-radius: 7px;
+    background-color: $color-gray;
+    .ng-input {
+      top: 0;
+    }
+    .ng-value-container {
+      .ng-placeholder {
+        top: auto !important;
+      }
+    }
+  }
+  .ng-dropdown-panel {
+    background-color: #ffffff;
+    border-radius: 0 0 18px 18px;
+    border-bottom: solid 3px $color-medium-blue;
+    padding: 9px 0;
+
+    .scroll-host {
+      max-height: 185px;
+      .ng-option {
+        padding: 5px;
+        &:hover {
+          background-color: $color-medium-blue;
+          color: #ffffff;
+        }
+      }
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #f5f5f5;
+      }
+
+      &::-webkit-scrollbar {
+        width: 3px;
+        background-color: #f5f5f5;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-medium-blue;
+      }
+    }
+  }
+}

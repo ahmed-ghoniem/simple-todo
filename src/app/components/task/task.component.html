@@ -1,0 +1,29 @@
+<div class="task" id="{{ task?.id }}">
+	<div>
+		<input
+			class="styled-checkbox"
+			type="checkbox"
+			id="{{ task?.id }}"
+			value="{{ task?.id }}"
+			(change)="selectTask(task.id)"
+		/>
+		<label for="{{ task?.id }}" [routerLink]="['/todo/' + task.id]">{{ task?.title }}</label>
+		<label class="date">{{ task?.date }}</label>
+	</div>
+
+	<div class="button-container">
+		<button class="btn btn-red" (click)="delete(task.id)" *ngIf="!task.isDeleted">
+			<i class="bi bi-trash3"></i>
+		</button>
+		<button
+			class="btn btn-green"
+			[ngClass]="{
+				'done btn-green': task?.state,
+				'todo btn-blue': !task?.state
+			}"
+			(click)="changeTaskState(task)"
+		>
+			<i class="bi bi-check2-circle"></i>
+		</button>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+@import "src/styles.scss";
+#todoDetails {
+  .todoDetails-container {
+    min-height: 100vh;
+    background-image: linear-gradient(#4ba2d1, #d0e4e0);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .Details {
+      border: 1px solid white;
+      border-radius: 6px;
+      padding: 40px;
+      color: $color-dark-blue;
+      font-weight: 500;
+      h5 {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 50px;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import "src/styles.scss";
+#todoList-Sec {
+  .header {
+    background-color: $color-medium-blue;
+    h6 {
+      color: white;
+      height: 61px;
+      padding: 20px;
+    }
+  }
+
+  .todolist-container {
+    min-height: 95vh;
+    background-image: linear-gradient(#4ba2d1, #d0e4e0);
+    padding: 20px;
+  }
+
+  .clear-fix {
+    @include clearfix();
+  }
+
+  .filteration {
+    label {
+      color: white;
+    }
+    .filteration-container {
+      height: 97px;
+      border-radius: 2px;
+      background-color: white;
+
+      label {
+        color: $color-font;
+      }
+      input {
+        background-color: $color-gray;
+      }
+    }
+  }
+
+  .group-container{
+    .group-label {
+      background-color: $color-light-blue;
+      padding: 7px 15px;
+      margin: 10px 0;
+      font-size: 14px;
+      width: 90px;
+      color: white;
+      height: 36px;
+      border-radius: 3px;
+    }
+  }
+
+}

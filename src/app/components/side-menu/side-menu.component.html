@@ -1,0 +1,80 @@
+<section id="sideMenu-Sec">
+	<nav class="main-menu">
+		<div class="collapseContainer d-flex justify-content-between">
+			<i class="bi bi-list"></i>
+			<i class="bi bi-search"></i>
+		</div>
+		<div class="userInfo">
+			<img src="assets/images/profilePic.jpg" alt="" />
+			<label>Muhamed Gamal</label>
+			<i class="bi bi-caret-down"></i>
+		</div>
+		<ul class="main-ul">
+			<li (click)="setFilter()">
+				<a>
+					<i class="bi bi-house-door"></i>
+					<span class="nav-text">Home</span>
+				</a>
+			</li>
+			<li class="has-subnav" (click)="setFilter(filterType.all)">
+				<a>
+					<i class="bi bi-list-ul"></i>
+					<span class="nav-text">All</span>
+				</a>
+			</li>
+			<li class="has-subnav" (click)="setFilter(filterType.today)">
+				<a>
+					<i class="bi bi-calendar2-week"></i>
+					<span class="nav-text">Today</span>
+				</a>
+			</li>
+			<li class="has-subnav" (click)="setFilter(filterType.week)">
+				<a>
+					<i class="bi bi-calendar2-week"></i>
+					<span class="nav-text">Week</span>
+				</a>
+			</li>
+			<li (click)="setFilter(filterType.done)">
+				<a>
+					<i class="bi bi-check2-circle"></i>
+					<span class="nav-text">Done</span>
+				</a>
+			</li>
+			<li (click)="setFilter(filterType.new)">
+				<a>
+					<i class="bi bi-check2-circle"></i>
+					<span class="nav-text">New</span>
+				</a>
+			</li>
+			<li (click)="setFilter(filterType.deleted)">
+				<a>
+					<i class="bi bi-trash3"></i>
+					<span class="nav-text">Deleted</span>
+				</a>
+			</li>
+			<li>
+				<a
+					class="btn"
+					data-toggle="collapse"
+					href="#groupCollapse"
+					role="button"
+					aria-expanded="false"
+					aria-controls="groupCollapse"
+				>
+					<i class="bi bi-folder"></i>
+					<span class="nav-text">Groups</span>
+					<i class="bi bi-caret-up"></i>
+				</a>
+				<div class="collapse show" id="groupCollapse">
+					<ul>
+						<li *ngFor="let group of groups" (click)="setFilter(filterType.group, group.id)">
+							<a>
+								<span class="nav-text">{{ group.name }}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</nav>
+</section>

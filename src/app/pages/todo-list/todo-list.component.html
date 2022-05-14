@@ -1,0 +1,108 @@
+<div class="main">
+	<div class="row p-0 m-0">
+		<!-- side menu  -->
+		<div class="col-2">
+			<app-side-menu></app-side-menu>
+		</div>
+		<!-- end side menu  -->
+		<div class="col-10">
+			<section id="todoList-Sec">
+				<div class="header">
+					<h6>Today</h6>
+				</div>
+				<div class="todolist-container">
+					<!-- add new task  -->
+					<button class="btn btn-blue float-end" routerLink="/addTodoTask">
+						<i class="bi bi-plus-circle"></i>
+						New Task
+					</button>
+					<!-- end add new task  -->
+
+					<div class="clear-fix"></div>
+					<!-- filteration part  -->
+					<div class="filteration">
+						<label>Filter By</label>
+						<div class="filteration-container row align-items-center">
+							<div
+								class="col-12 col-md-2 mx-2"
+								*ngIf="routeFilter != filterType.week && routeFilter != filterType.today"
+							>
+								<label for="dateInput" class="form-label">Date</label>
+								<input
+									type="date"
+									class="form-control"
+									id="dateInput"
+									[(ngModel)]="dateFilterVal"
+								/>
+							</div>
+
+							<div class="col-12 col-md-2 mx-2">
+								<label for="titleInput" class="form-label">Title</label>
+								<input
+									type="text"
+									class="form-control"
+									id="titleInput"
+									[(ngModel)]="titleFilterVal"
+								/>
+							</div>
+
+							<div class="col-12 col-md-4 mx-2" *ngIf="routeFilter != filterType.group">
+								<label class="form-label">Group</label>
+								<ng-select
+									[items]="GroupData"
+									class="form-control w-100 p-0"
+									bindLabel="name"
+									bindValue="id"
+									dropdownPosition="bottom"
+									[multiple]="true"
+									[(ngModel)]="groupFilterVal"
+								></ng-select>
+							</div>
+						</div>
+					</div>
+					<!-- end  filteration part  -->
+
+					<!-- controls buttons part  -->
+					<div class="d-flex justify-content-end">
+						<button
+							class="btn btn-red"
+							[disabled]="!selectedTasks.length"
+							(click)="deleteAllSelectedTasks()"
+						>
+							<i class="bi bi-trash3"></i>
+							Delete Selected
+						</button>
+
+						<button
+							class="btn btn-green"
+							[disabled]="!selectedTasks.length"
+							(click)="doneAllTasks()"
+						>
+							<i class="bi bi-check2-circle"></i>
+							Done
+						</button>
+					</div>
+
+					<!-- end controls buttons part  -->
+
+					<!-- task part  -->
+					<div class="group-container" *ngFor="let group of TaskData">
+						<div class="group-label">
+							<label>{{ group.name }}</label>
+						</div>
+
+						<app-task
+							*ngFor="let task of group.tasks"
+							[task]="task"
+							(deleteTask)="deleteTask($event)"
+							(selectedTasks)="selectTasks($event)"
+							(changeState)="changeState($event)"
+						></app-task>
+					</div>
+
+					<!-- end task part  -->
+				</div>
+			</section>
+		</div>
+	</div>
+</div>

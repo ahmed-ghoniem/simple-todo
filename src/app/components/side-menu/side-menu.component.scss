@@ -1,0 +1,70 @@
+@import "src/styles.scss";
+#sideMenu-Sec {
+  .main-menu {
+    background-color: #fff;
+    min-height: 95vh;
+    .collapseContainer {
+      height: 61px;
+      background-color: $color-light-blue;
+      i {
+        font-size: 25px;
+        padding: 15px;
+        &:before {
+          color: white;
+        }
+      }
+    }
+    .userInfo {
+      height: 61px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      background-color: $color-ligth-sky;
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      label {
+        font-family: Roboto;
+        font-size: 14px;
+        color: #363636;
+      }
+    }
+
+    .main-ul {
+      margin: 25px px;
+      list-style: none;
+      li {
+        height: 45px;
+        padding: 7px 15px;
+        a {
+          text-decoration: none;
+          color: $color-font;
+          font-size: 14px;
+          i {
+            padding: 0 5px;
+            font-size: 16px;
+          }
+        }
+        &:hover {
+          background-color: $color-ligth-sky;
+          cursor: pointer;
+        }
+        .bi-caret-down ,.bi-caret-up {
+          margin-left: 85px;
+        }
+        ul {
+          list-style: none;
+          background-color: $color-ligth-sky;
+          li {
+            padding: 7px 45px;
+            a {
+              color: $color-medium-blue;
+            }
+          }
+        }
+      }
+    }
+  }
+}

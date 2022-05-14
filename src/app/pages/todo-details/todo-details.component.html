@@ -1,0 +1,36 @@
+<main>
+	<section id="todoDetails">
+		<div class="todoDetails-container">
+			<div class="Details w-50">
+				<h5>{{ taskObj?.title }}</h5>
+				<div class="row mb-3">
+					<div class="col-2"><label>Date:</label></div>
+					<div class="col-6">
+						<label>{{ taskObj?.date }}</label>
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-2"><label>STATE:</label></div>
+					<div class="col-6">
+						<label *ngIf="taskObj?.state">DONE</label>
+						<label *ngIf="!taskObj?.state">TODO</label>
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-2"><label>groupName:</label></div>
+					<div class="col-6">
+						<label>{{ taskObj?.groupName }}</label>
+					</div>
+				</div>
+			</div>
+			<div class="row my-3">
+				<button type="button" class="w-100 btn btn-gray" routerLink="/">
+					<i class="bi bi-arrow-bar-left"></i>
+					Back
+				</button>
+			</div>
+		</div>
+	</section>
+</main>
